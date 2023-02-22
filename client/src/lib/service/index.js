@@ -1,6 +1,7 @@
 import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
-// GET
+
+//fetch products from the server
 export const getProducts = () => {
   return new Promise((onSuccess, onFail) => {
     axios
@@ -14,6 +15,8 @@ export const getProducts = () => {
       .catch((err) => onFail(err));
   });
 };
+
+//Get the user's name and id from the message body.
 
 export const getUser = (body) => {
   return new Promise((onSuccess, onFail) => {
@@ -35,7 +38,7 @@ export const getUser = (body) => {
   });
 };
 
-// POST
+//Add a user to the database.
 export const addUser = (body) => {
   return new Promise((onSuccess, onFail) => {
     axios
@@ -50,6 +53,7 @@ export const addUser = (body) => {
   });
 };
 
+//Add order to database
 export const addOrder = (body) => {
   return new Promise((onSuccess, onFail) => {
     axios
@@ -64,7 +68,7 @@ export const addOrder = (body) => {
   });
 };
 
-//stripe
+//Create a new payment intent Stripe if one does not exist already
 export const processPayment = async (order) => {
   var stripePromise = loadStripe("pk_test_Y5ScLHaUyFGQYd13cNJeEMFx");
   const stripe = await stripePromise;

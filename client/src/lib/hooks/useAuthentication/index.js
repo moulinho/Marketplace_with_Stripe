@@ -7,6 +7,7 @@ import {
   handleAuthenticationErrors,
 } from "../../state/actions/authentication";
 
+//User registration is successful, dispatch the action to update the user profile.
 const useAuthentication = (dispatch) => {
   function handleUserRegistration(newUser) {
     const userProfile = {
@@ -78,4 +79,5 @@ const useAuthentication = (dispatch) => {
     handleAuthentication,
   };
 };
+
 export default useAuthentication;
